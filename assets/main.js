@@ -7,8 +7,8 @@ if (!allCities) {
     var historyEl = document.createElement("button");
     historyEl.setAttribute("class", "btn btn-secondary");
     historyEl.setAttribute("id", "search" + i);
-    historyEl.innerText = (allCities[i])
-   document.querySelector(".history").appendChild(historyEl);
+    historyEl.innerText = allCities[i];
+    document.querySelector(".history").appendChild(historyEl);
   }
 }
 
@@ -17,7 +17,6 @@ if (!allCities) {
 
 // use temp key from weather api
 // api fetch for play-list
-
 
 var date = document.querySelector(".date");
 setInterval(function () {
@@ -53,13 +52,18 @@ let weather = {
     document.querySelector(".speed").innerHTML =
       "Wind Speed: " + speed + "mph ";
 
-    //add new cities to history array, remove duplicates
-    allCities.push(name);
-    function removeDuplicates(data) {
-      return [...new Set(data)];
+    //add only new cities to history array and create a button
+    if (allCities.includes(name) == false) {
+      allCities.push(name);
+      localStorage.setItem("cities", JSON.stringify(allCities));
+      historyEl = document.createElement("button");
+      historyEl.setAttribute("class", "btn btn-secondary");
+      //TODO: determine best way to assign an ID to element
+      //historyEl.setAttribute("id", "search" + i);
+      historyEl.innerText = name;
+      document.querySelector(".history").appendChild(historyEl);
     }
-    allCities = removeDuplicates(allCities)
-    localStorage.setItem("cities", JSON.stringify(allCities));
+    $(".search-bar").val("");
   },
 
   search: function () {
@@ -81,11 +85,11 @@ document
     }
   });
 
-  //clears users' local storage & refreshes page
-  //  MAY WANT TO REMOVE FEATURE SINCE IT WILL INTERRUPT MUSIC PLAY BY RESETTING PAGE
-  $('#clear').click(function(){
-    localStorage.clear();
-    location.reload()
-  })
+//clears users' local storage & refreshes page
+//  MAY WANT TO REMOVE FEATURE SINCE IT WILL INTERRUPT MUSIC PLAY BY RESETTING PAGE
+$("#clear").click(function () {
+  localStorage.clear();
+  location.reload();
+});
 
 weather.fetchWeather("Atlanta");
