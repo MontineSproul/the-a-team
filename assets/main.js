@@ -58,8 +58,7 @@ let weather = {
       localStorage.setItem("cities", JSON.stringify(allCities));
       historyEl = document.createElement("button");
       historyEl.setAttribute("class", "btn btn-secondary");
-      //TODO: determine best way to assign an ID to element
-      //historyEl.setAttribute("id", "search" + i);
+      historyEl.setAttribute("id", "search" + (allCities.length -1) );
       historyEl.innerText = name;
       document.querySelector(".history").appendChild(historyEl);
     }
