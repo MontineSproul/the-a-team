@@ -4,19 +4,20 @@ if (!allCities) {
   allCities = [];
 } else {
   for (i = 0; i < allCities.length; i++) {
-    //TODO: add code here to populate buttons for each previously searched city
-    // textEl = document.getElementById(allCities[i]);
-    // textEl.innerText = allCities[j].name;
-    console.log(allCities[i]);
+    var historyEl = document.createElement("button");
+    historyEl.setAttribute("class", "btn btn-secondary");
+    historyEl.setAttribute("id", "search" + i);
+    historyEl.innerText = (allCities[i])
+   document.querySelector(".history").appendChild(historyEl);
   }
 }
+
+//TODO: add functionality to "clear history" button
+//TODO: add eventlisteners for search history buttons
 
 // use temp key from weather api
 // api fetch for play-list
 
-
-//Declare variables
-var newCity;
 
 var date = document.querySelector(".date");
 setInterval(function () {
@@ -57,8 +58,8 @@ let weather = {
     function removeDuplicates(data) {
       return [...new Set(data)];
     }
-    localStorage.setItem("cities", JSON.stringify(removeDuplicates(allCities)));
-  
+    allCities = removeDuplicates(allCities)
+    localStorage.setItem("cities", JSON.stringify(allCities));
   },
 
   search: function () {
@@ -79,5 +80,12 @@ document
       weather.search();
     }
   });
+
+  //clears users' local storage & refreshes page
+  //  MAY WANT TO REMOVE FEATURE SINCE IT WILL INTERRUPT MUSIC PLAY BY RESETTING PAGE
+  $('#clear').click(function(){
+    localStorage.clear();
+    location.reload()
+  })
 
 weather.fetchWeather("Atlanta");
