@@ -18,6 +18,8 @@ if (!allCities) {
 // use temp key from weather api
 // api fetch for play-list
 
+// Selector for div class with 'spotify' id
+var spotifyEl = $("#spotify");
 //Disiplays date in weather card
 var date = document.querySelector(".date");
 setInterval(function () {
@@ -65,6 +67,9 @@ let weather = {
       historyEl.innerText = name;
       document.querySelector(".history").appendChild(historyEl);
     }
+
+    
+
     $(".search-bar").val("");
   },
 
