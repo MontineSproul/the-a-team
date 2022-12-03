@@ -11,6 +11,8 @@ if (!allCities) {
   }
 }
 
+// Selector for main element
+var mainEl = $("main")
 // Selector for div class with 'spotify' id
 var spotifyEl = $("#spotify");
 //Disiplays date in weather card
