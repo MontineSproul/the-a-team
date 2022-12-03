@@ -6,17 +6,10 @@ if (!allCities) {
   for (i = 0; i < allCities.length; i++) {
     var historyEl = document.createElement("button");
     historyEl.setAttribute("class", "btn btn-secondary");
-    historyEl.setAttribute("id", "search" + i);
     historyEl.innerText = allCities[i];
     document.querySelector(".history").appendChild(historyEl);
   }
 }
-
-//TODO: add functionality to "clear history" button
-//TODO: add eventlisteners for search history buttons
-
-// use temp key from weather api
-// api fetch for play-list
 
 // Selector for div class with 'spotify' id
 var spotifyEl = $("#spotify");
@@ -40,7 +33,7 @@ let weather = {
       .then((data) => this.displayWeather(data));
   },
 
-//Function to dispaly weather data collected 
+  //Function to dispaly weather data collected
   displayWeather: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
@@ -63,41 +56,48 @@ let weather = {
       localStorage.setItem("cities", JSON.stringify(allCities));
       historyEl = document.createElement("button");
       historyEl.setAttribute("class", "btn btn-secondary");
-      historyEl.setAttribute("id", "search" + (allCities.length -1) );
       historyEl.innerText = name;
       document.querySelector(".history").appendChild(historyEl);
     }
 
-    var spotifyEmbed = $("<div>")
-    spotifyEmbed.attr("id", "embed")
+    var spotifyEmbed = $("<div>");
+    spotifyEmbed.attr("id", "embed");
     spotifyEl.append(spotifyEmbed);
 
     // Hot weather is temp > 75
     // Warm weather is when temp is < 75 and > 60
-    // Cold weather is < 60 
-
-    if(temp > 75 ) {
-      console.log(`it's hot`)
-      $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
-      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`)
-    } else if(temp <= 75 && temp >= 60) {
-      console.log(`it's warm`)  
-      $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
-      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`)  
+    // Cold weather is < 60
+    if (temp > 75) {
+      console.log(`it's hot`);
+      $("#embed")
+        .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
+      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
+    } else if (temp <= 75 && temp >= 60) {
+      console.log(`it's warm`);
+      $("#embed")
+        .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
+      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
     } else {
-      console.log(`it's cold`)
-      $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
-      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`)
+      console.log(`it's cold`);
+      $("#embed")
+        .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
+      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
     }
-
+    //clear search bar
     $(".search-bar").val("");
   },
 
-//Function to retrieve the data entered in search 
-search: function () {
+  //Function to retrieve the data entered in search
+  search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
   },
 };
+
+//clears users' local storage & refreshes page
+$("#clear").click(function () {
+  localStorage.clear();
+  location.reload();
+});
 
 // Event listener for click on search button
 document
@@ -115,11 +115,11 @@ document
     }
   });
 
-//clears users' local storage & refreshes page
-//  MAY WANT TO REMOVE FEATURE SINCE IT WILL INTERRUPT MUSIC PLAY BY RESETTING PAGE
-$("#clear").click(function () {
-  localStorage.clear();
-  location.reload();
+// Event listener for click on historical search buttons
+$(".history").on("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    weather.fetchWeather(event.target.innerText);
+  }
 });
 
 // Default display - Atlanta's weather conditions
