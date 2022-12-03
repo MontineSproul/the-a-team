@@ -6,7 +6,6 @@ if (!allCities) {
   for (i = 0; i < allCities.length; i++) {
     var historyEl = document.createElement("button");
     historyEl.setAttribute("class", "btn btn-secondary");
-    historyEl.setAttribute("id", "search" + i);
     historyEl.innerText = allCities[i];
     document.querySelector(".history").appendChild(historyEl);
   }
@@ -44,52 +43,50 @@ let weather = {
     document.querySelector(".city").innerText = name;
     document.querySelector(".temp").innerHTML = temp + "°F";
     document.querySelector(".icon").src =
-    "https://openweathermap.org/img/wn/" + icon + ".png";
+      "https://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".description").innerHTML = description;
     document.querySelector(".humidity").innerHTML =
-    "Humidity: " + humidity + "%";
+      "Humidity: " + humidity + "%";
     document.querySelector(".speed").innerHTML =
-    "Wind Speed: " + speed + "mph ";
-    
+      "Wind Speed: " + speed + "mph ";
+
     //add only new cities to history array and create a button
     if (allCities.includes(name) == false) {
       allCities.push(name);
       localStorage.setItem("cities", JSON.stringify(allCities));
       historyEl = document.createElement("button");
       historyEl.setAttribute("class", "btn btn-secondary");
-      //historyEl.setAttribute("id", "search" + (allCities.length - 1));
       historyEl.innerText = name;
       document.querySelector(".history").appendChild(historyEl);
     }
-    
+
     var spotifyEmbed = $("<div>");
     spotifyEmbed.attr("id", "embed");
     spotifyEl.append(spotifyEmbed);
-    
+
     // Hot weather is temp > 75
     // Warm weather is when temp is < 75 and > 60
     // Cold weather is < 60
-    
     if (temp > 75) {
       console.log(`it's hot`);
       $("#embed")
-      .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
+        .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
       width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
     } else if (temp <= 75 && temp >= 60) {
       console.log(`it's warm`);
       $("#embed")
-      .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
+        .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
       width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
     } else {
       console.log(`it's cold`);
       $("#embed")
-      .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
+        .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
       width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
     }
-    
+    //clear search bar
     $(".search-bar").val("");
   },
-  
+
   //Function to retrieve the data entered in search
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
@@ -97,38 +94,34 @@ let weather = {
 };
 
 //clears users' local storage & refreshes page
-//TODO:  DECIDE IF WE WANT TO REMOVE FEATURE SINCE RESETTING PAGE INTERRUPTs MUSIC PLAY
 $("#clear").click(function () {
   localStorage.clear();
-  location.reload();
   location.reload();
 });
 
 // Event listener for click on search button
 document
-.querySelector(".card-header button")
-.addEventListener("click", function () {
-  weather.search();
-});
+  .querySelector(".card-header button")
+  .addEventListener("click", function () {
+    weather.search();
+  });
 
 // Event listener for key up on enter key
 document
-.querySelector(".search-bar")
-.addEventListener("keyup", function (event) {
+  .querySelector(".search-bar")
+  .addEventListener("keyup", function (event) {
     if (event.key == "Enter") {
       weather.search();
     }
   });
 
-  
-  // Event listener for click on historical search buttons
-    $(".btn-secondary").on("click", function(){
-      console.log(this.id)
-      console.log(this.innerText)
-      weather.fetchWeather(this.innerText);
-    });
-  
-  
-  // Default display - Atlanta's weather conditions
-  // NEED TO REMOVE TO DEFAULT TO SEARCH BAR ONLY SO MUSIC DOES NOT PLAY UPON LOADING THE PAGE
-  weather.fetchWeather("Atlanta");
+// Event listener for click on historical search buttons
+$(".history").on("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    weather.fetchWeather(event.target.innerText);
+  }
+});
+
+// Default display - Atlanta's weather conditions
+// NEED TO REMOVE TO DEFAULT TO SEARCH BAR ONLY SO MUSIC DOES NOT PLAY UPON LOADING THE PAGE
+weather.fetchWeather("Atlanta");
