@@ -24,7 +24,7 @@
     }
 }
 
-@keyframes animate{
+@keyframes animate-hot{
     0% {
         background-image: url(../images/hot/sunny2.jpg) ;
     }
@@ -39,6 +39,42 @@
     }
     100% {
         background-image: url(../images/hot/sunny6.jpg) ;
+    }
+}
+
+@keyframes animate-warm{
+    0% {
+        background-image: url(../images/warm/warm2.jpg) ;
+    }
+    25% {
+        background-image: url(../images/warm/warm3.jpg) ;
+    }
+    50% {
+        background-image: url(../images/warm/warm4.jpg) ;
+    }
+    75% {
+        background-image: url(../images/warm/warm5.jpg) ;
+    }
+    100% {
+        background-image: url(../images/warm/warm6.jpg) ;
+    }
+}
+
+@keyframes animate-cold{
+    0% {
+        background-image: url(../images/cold/cold2.jpg) ;
+    }
+    25% {
+        background-image: url(../images/cold/cold3.jpg) ;
+    }
+    50% {
+        background-image: url(../images/cold/cold4.jpg) ;
+    }
+    75% {
+        background-image: url(../images/cold/cold5.jpg) ;
+    }
+    100% {
+        background-image: url(../images/cold/cold6.jpg) ;
     }
 }
 
@@ -65,7 +101,7 @@ main {
     background-repeat: no-repeat;
     transition: 5s;
 
-    animation-name: animate;
+    animation-name: animate-hot;
     animation-direction: alternate-reverse;
     animation-duration: 30s ;
     animation-fill-mode: forwards ;
@@ -76,13 +112,13 @@ main {
 }
 
 .warm {
-    background-image: url(../images/hot/sunny1.jpg);
+    background-image: url(../images/warm/warm1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: 5s;
 
-    animation-name: animate;
+    animation-name: animate-warm;
     animation-direction: alternate-reverse;
     animation-duration: 30s ;
     animation-fill-mode: forwards ;
@@ -93,13 +129,13 @@ main {
 }
 
 .cold {
-    background-image: url(../images/hot/sunny1.jpg);
+    background-image: url(../images/cold/cold1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: 5s;
 
-    animation-name: animate;
+    animation-name: animate-cold;
     animation-direction: alternate-reverse;
     animation-duration: 30s ;
     animation-fill-mode: forwards ;
@@ -109,15 +145,6 @@ main {
 
 }
 
-
-
-
-
-
-
-/* main {
-    animation: transitionInX 0.75s;
-} */
 
 .mv-r {
     margin-top: 25px;
