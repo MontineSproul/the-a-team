@@ -12,6 +12,8 @@
     
    
 } */
+
+/* Option to choose either or Transition upon page load */
 @keyframes transitionInX {
     from {
         opacity: 0;
@@ -24,6 +26,7 @@
     }
 }
 
+/* Option to choose either or Transition upon page load */
 @keyframes transitionInY {
     from {
         opacity: 0;
