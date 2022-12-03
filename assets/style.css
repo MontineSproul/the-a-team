@@ -12,7 +12,7 @@
     
    
 } */
-@keyframes transitionIn {
+@keyframes transitionInX {
     from {
         opacity: 0;
         transform: rotateX(-10deg);
@@ -24,12 +24,25 @@
     }
 }
 
+@keyframes transitionInY {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 body {
     background-image: url();
 }
 
 main {
-    animation: transitionIn 0.75s;
+    animation: transitionInX 0.75s;
 }
 
 .mv-r {
