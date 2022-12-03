@@ -18,11 +18,13 @@ if (!allCities) {
 // use temp key from weather api
 // api fetch for play-list
 
+//Disiplays date in weather card
 var date = document.querySelector(".date");
 setInterval(function () {
   date.textContent = moment().format("MMMM Do YYYY");
 });
 
+//Retrieves data from Openweathermap.org (API KEY)
 let weather = {
   apiKey: "6af174eb1acf790c330054f1967a6d0f",
   fetchWeather: function (city) {
@@ -36,6 +38,7 @@ let weather = {
       .then((data) => this.displayWeather(data));
   },
 
+//Function to dispaly weather data collected 
   displayWeather: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
@@ -65,17 +68,20 @@ let weather = {
     $(".search-bar").val("");
   },
 
-  search: function () {
+//Function to retrieve the data entered in search 
+search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
   },
 };
 
+// Event listener for click on search button
 document
   .querySelector(".card-header button")
   .addEventListener("click", function () {
     weather.search();
   });
 
+// Event listener for key up on enter key
 document
   .querySelector(".search-bar")
   .addEventListener("keyup", function (event) {
@@ -91,4 +97,6 @@ $("#clear").click(function () {
   location.reload();
 });
 
+// Default display - Atlanta's weather conditions
+// NEED TO REMOVE TO DEFAULT TO SEARCH BAR ONLY SO MUSIC DOES NOT PLAY UPON LOADING THE PAGE
 weather.fetchWeather("Atlanta");
