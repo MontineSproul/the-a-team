@@ -41,7 +41,8 @@
 
 
 body {
-    background-image: url();
+    background-image: url(../images/sunny1.jpg);
+    background-size: cover;
 }
 
 
