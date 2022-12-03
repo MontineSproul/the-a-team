@@ -42,7 +42,7 @@
     }
 }
 
-body {
+.hot {
     background-image: url(../images/hot/sunny1.jpg);
     background-size: cover;
     background-position: center;
@@ -59,7 +59,39 @@ body {
 
 }
 
+.warm {
+    background-image: url(../images/hot/sunny1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
 
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s ;
+    animation-fill-mode: forwards ;
+    animation-iteration-count: infinite ;
+    animation-play-state: running ;
+    animation-timing-function: ease-in-out ;
+
+}
+
+.cold {
+    background-image: url(../images/hot/sunny1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s ;
+    animation-fill-mode: forwards ;
+    animation-iteration-count: infinite ;
+    animation-play-state: running ;
+    animation-timing-function: ease-in-out ;
+
+}
 
 
 
