@@ -38,11 +38,27 @@
         background-image: url(../images/hot/sunny5.jpg) ;
     }
     100% {
-        background-image: url(../images/hot/sunny1.jpg) ;
+        background-image: url(../images/hot/sunny6.jpg) ;
     }
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    animation: transitionInY 0.75s;
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Below are classes to add to the <main> element, to impliment background transitions based off the temp */
 .hot {
+    height: 100vh;
+    width: 100%;
     background-image: url(../images/hot/sunny1.jpg);
     background-size: cover;
     background-position: center;
@@ -99,9 +115,9 @@
 
 
 
-main {
+/* main {
     animation: transitionInX 0.75s;
-}
+} */
 
 .mv-r {
     margin-top: 25px;
