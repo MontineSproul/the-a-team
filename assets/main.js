@@ -72,6 +72,10 @@ let weather = {
     spotifyEmbed.attr("id", "embed")
     spotifyEl.append(spotifyEmbed);
 
+    // Hot weather is temp > 75
+    // Warm weather is when temp is < 75 and > 60
+    // Cold weather is < 60 
+
     if(temp > 75 ) {
       console.log(`it's hot`)
       $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
