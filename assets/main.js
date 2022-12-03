@@ -18,6 +18,8 @@ if (!allCities) {
 // use temp key from weather api
 // api fetch for play-list
 
+// Selector for div class with 'spotify' id
+var spotifyEl = $("#spotify");
 //Disiplays date in weather card
 var date = document.querySelector(".date");
 setInterval(function () {
@@ -65,6 +67,29 @@ let weather = {
       historyEl.innerText = name;
       document.querySelector(".history").appendChild(historyEl);
     }
+
+    var spotifyEmbed = $("<div>")
+    spotifyEmbed.attr("id", "embed")
+    spotifyEl.append(spotifyEmbed);
+
+    // Hot weather is temp > 75
+    // Warm weather is when temp is < 75 and > 60
+    // Cold weather is < 60 
+
+    if(temp > 75 ) {
+      console.log(`it's hot`)
+      $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
+      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`)
+    } else if(temp <= 75 && temp >= 60) {
+      console.log(`it's warm`)  
+      $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
+      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`)  
+    } else {
+      console.log(`it's cold`)
+      $("#embed").html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
+      width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`)
+    }
+
     $(".search-bar").val("");
   },
 
