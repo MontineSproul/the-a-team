@@ -43,6 +43,7 @@
 body {
     background-image: url(../images/hot/sunny1.jpg);
     background-size: cover;
+    background-position: center;
 }
 
 
