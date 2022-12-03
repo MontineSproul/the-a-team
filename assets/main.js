@@ -68,6 +68,10 @@ let weather = {
       document.querySelector(".history").appendChild(historyEl);
     }
 
+    var spotifyEmbed = $("<div>")
+    spotifyEmbed.attr("id", "embed")
+    spotifyEl.append(spotifyEmbed);
+
     
 
     $(".search-bar").val("");
