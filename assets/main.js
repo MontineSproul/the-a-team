@@ -72,7 +72,13 @@ let weather = {
     spotifyEmbed.attr("id", "embed")
     spotifyEl.append(spotifyEmbed);
 
-    
+    if(temp > 75 ) {
+      console.log(`it's hot`)
+    } else if(temp <= 75 && temp >= 60) {
+      console.log(`it's warm`)    
+    } else {
+      console.log(`it's cold`)
+    }
 
     $(".search-bar").val("");
   },
