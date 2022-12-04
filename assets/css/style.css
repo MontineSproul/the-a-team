@@ -26,55 +26,55 @@
 
 @keyframes animate-hot{
     0% {
-        background-image: url(../images/hot/sunny2.jpg) ;
+        background-image: url(../images/hot/sunny2.jpeg) ;
     }
     25% {
-        background-image: url(../images/hot/sunny3.jpg) ;
+        background-image: url(../images/hot/sunny3.jpeg) ;
     }
     50% {
-        background-image: url(../images/hot/sunny4.jpg) ;
+        background-image: url(../images/hot/sunny4.jpeg) ;
     }
     75% {
-        background-image: url(../images/hot/sunny5.jpg) ;
+        background-image: url(../images/hot/sunny5.jpeg) ;
     }
     100% {
-        background-image: url(../images/hot/sunny6.jpg) ;
+        background-image: url(../images/hot/sunny6.jpeg) ;
     }
 }
 
 @keyframes animate-warm{
     0% {
-        background-image: url(../images/warm/warm2.jpg) ;
+        background-image: url(../images/warm/warm2.jpeg) ;
     }
     25% {
-        background-image: url(../images/warm/warm3.jpg) ;
+        background-image: url(../images/warm/warm3.jpeg) ;
     }
     50% {
-        background-image: url(../images/warm/warm4.jpg) ;
+        background-image: url(../images/warm/warm4.jpeg) ;
     }
     75% {
-        background-image: url(../images/warm/warm5.jpg) ;
+        background-image: url(../images/warm/warm5.jpeg) ;
     }
     100% {
-        background-image: url(../images/warm/warm6.jpg) ;
+        background-image: url(../images/warm/warm6.jpeg) ;
     }
 }
 
 @keyframes animate-cold{
     0% {
-        background-image: url(../images/cold/cold2.jpg) ;
+        background-image: url(../images/cold/cold2.jpeg) ;
     }
     25% {
-        background-image: url(../images/cold/cold3.jpg) ;
+        background-image: url(../images/cold/cold3.jpeg) ;
     }
     50% {
-        background-image: url(../images/cold/cold4.jpg) ;
+        background-image: url(../images/cold/cold4.jpeg) ;
     }
     75% {
-        background-image: url(../images/cold/cold5.jpg) ;
+        background-image: url(../images/cold/cold5.jpeg) ;
     }
     100% {
-        background-image: url(../images/cold/cold6.jpg) ;
+        background-image: url(../images/cold/cold6.jpeg) ;
     }
 }
 
@@ -95,7 +95,7 @@ main {
 .hot {
     height: 100vh;
     width: 100%;
-    background-image: url(../images/hot/sunny1.jpg);
+    background-image: url(../images/hot/sunny1.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -112,7 +112,7 @@ main {
 }
 
 .warm {
-    background-image: url(../images/warm/warm1.jpg);
+    background-image: url(../images/warm/warm1.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -129,7 +129,7 @@ main {
 }
 
 .cold {
-    background-image: url(../images/cold/cold1.jpg);
+    background-image: url(../images/cold/cold1.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
