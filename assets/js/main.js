@@ -67,8 +67,8 @@ let weather = {
     spotifyEl.append(spotifyEmbed);
 
     if (temp > 75) {
-      
-      // Hot weather conditions
+
+      // Hot weather conditions; sets 'main' element's class to be 'hot', embeds 'hot' weather playlist
       mainEl.attr("class", "hot")
       $("#embed")
         .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
@@ -76,7 +76,7 @@ let weather = {
 
     } else if (temp <= 75 && temp >= 60) {
 
-      // Warm weather conditions
+      // Warm weather conditions; sets 'main' element's class to be 'warm', embeds 'warm' weather playlist
       console.log(`it's warm`);
       mainEl.attr("class", "warm")
       $("#embed")
@@ -85,7 +85,7 @@ let weather = {
 
     } else {
 
-      // Cold weather conditions
+      // Cold weather conditions; sets 'main' element's class to be 'cold', embeds 'cold' weather playlist
       console.log(`it's cold`);
       mainEl.attr("class", "cold")
       $("#embed")
