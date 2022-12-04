@@ -29,7 +29,7 @@ let weather = {
       "https://api.openweathermap.org/data/2.5/weather?q=" +
         city +
         "&units=imperial&appid=" +
-        this.apiKey
+        this.apiKey, {SameSite:"None"}
     )
       .then((response) => response.json())
       .then((data) => this.displayWeather(data));
