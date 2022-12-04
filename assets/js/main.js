@@ -11,6 +11,8 @@ if (!allCities) {
   }
 }
 
+// Selector for main element
+var mainEl = $("main")
 // Selector for div class with 'spotify' id
 var spotifyEl = $("#spotify");
 //Disiplays date in weather card
@@ -64,21 +66,28 @@ let weather = {
     spotifyEmbed.attr("id", "embed");
     spotifyEl.append(spotifyEmbed);
 
-    // Hot weather is temp > 75
-    // Warm weather is when temp is < 75 and > 60
-    // Cold weather is < 60
     if (temp > 75) {
-      console.log(`it's hot`);
+
+      // Hot weather conditions; sets 'main' element's class to be 'hot', embeds 'hot' weather playlist
+      mainEl.attr("class", "hot")
       $("#embed")
         .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
       width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
+
     } else if (temp <= 75 && temp >= 60) {
+
+      // Warm weather conditions; sets 'main' element's class to be 'warm', embeds 'warm' weather playlist
       console.log(`it's warm`);
+      mainEl.attr("class", "warm")
       $("#embed")
         .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
       width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);
+
     } else {
+
+      // Cold weather conditions; sets 'main' element's class to be 'cold', embeds 'cold' weather playlist
       console.log(`it's cold`);
+      mainEl.attr("class", "cold")
       $("#embed")
         .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
       width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`);

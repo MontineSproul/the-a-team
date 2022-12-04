@@ -1,0 +1,178 @@
+/* Option to choose either or Transition upon page load */
+@keyframes transitionInX {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+/* Option to choose either or Transition upon page load */
+@keyframes transitionInY {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animate-hot{
+    0% {
+        background-image: url(../images/hot/sunny2.jpeg) ;
+    }
+    25% {
+        background-image: url(../images/hot/sunny3.jpeg) ;
+    }
+    50% {
+        background-image: url(../images/hot/sunny4.jpeg) ;
+    }
+    75% {
+        background-image: url(../images/hot/sunny5.jpeg) ;
+    }
+    100% {
+        background-image: url(../images/hot/sunny6.jpeg) ;
+    }
+}
+
+@keyframes animate-warm{
+    0% {
+        background-image: url(../images/warm/warm2.jpeg) ;
+    }
+    25% {
+        background-image: url(../images/warm/warm3.jpeg) ;
+    }
+    50% {
+        background-image: url(../images/warm/warm4.jpeg) ;
+    }
+    75% {
+        background-image: url(../images/warm/warm5.jpeg) ;
+    }
+    100% {
+        background-image: url(../images/warm/warm6.jpeg) ;
+    }
+}
+
+@keyframes animate-cold{
+    0% {
+        background-image: url(../images/cold/cold2.jpeg) ;
+    }
+    25% {
+        background-image: url(../images/cold/cold3.jpeg) ;
+    }
+    50% {
+        background-image: url(../images/cold/cold4.jpeg) ;
+    }
+    75% {
+        background-image: url(../images/cold/cold5.jpeg) ;
+    }
+    100% {
+        background-image: url(../images/cold/cold6.jpeg) ;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    animation: transitionInY 0.75s;
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Below are classes to add to the <main> element, to impliment background transitions based off the temp */
+.hot {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../images/hot/sunny1.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate-hot;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s ;
+    animation-fill-mode: forwards ;
+    animation-iteration-count: infinite ;
+    animation-play-state: running ;
+    animation-timing-function: ease-in-out ;
+
+}
+
+.warm {
+    background-image: url(../images/warm/warm1.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate-warm;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s ;
+    animation-fill-mode: forwards ;
+    animation-iteration-count: infinite ;
+    animation-play-state: running ;
+    animation-timing-function: ease-in-out ;
+
+}
+
+.cold {
+    background-image: url(../images/cold/cold1.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate-cold;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s ;
+    animation-fill-mode: forwards ;
+    animation-iteration-count: infinite ;
+    animation-play-state: running ;
+    animation-timing-function: ease-in-out ;
+
+}
+/* Above are classes to add to the <main> element, to impliment background transitions based off the temp */
+
+.mv-r {
+    margin-top: 25px;
+    float: left;
+    left: 25px;
+    margin-left: 25px;
+
+}
+
+.ittybuttons {
+    
+    margin-top: 25px;
+    float:right;
+    right: 95px;
+    position: relative;
+}
+
+/* h1 {
+    text-align: center;
+    font-size: 500px;
+} */
+
+/* .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    display: inline-block;
+    padding: 300px;
+    margin: auto;
+    
+   
+} */
