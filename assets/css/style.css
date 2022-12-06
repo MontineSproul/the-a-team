@@ -105,7 +105,7 @@ h1,.search-bar,.nP{
     font-family: 'IBM Plex Mono', monospace; 
     font-weight: 500;
  }
- h3{
+ h3, .ittybuttons{
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
  }
@@ -183,12 +183,12 @@ h1,.search-bar,.nP{
 }
 
 .ittybuttons {
-    
     margin-top: 25px;
     float:right;
     right: 95px;
     position: relative;
 }
+
 
 /* .card-body {
 
