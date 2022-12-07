@@ -143,8 +143,13 @@ function generateImg() {
 // debugger
   fetch(url)
     .then(response => {return response.json();})
-    .then(function (data) {
+    .then((data) => {
+      // Retrieves image from json image
       console.log(data.results[0].urls.full);
+      // Retrieves image's height
+      console.log(data.results[0].height)
+      // Retrieves image's width
+      console.log(data.results[0].width)
     })
   }
 
