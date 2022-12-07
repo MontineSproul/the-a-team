@@ -134,3 +134,12 @@ $(".history").on("click", (event) => {
 // Default display - Atlanta's weather conditions
 // NEED TO REMOVE TO DEFAULT TO SEARCH BAR ONLY SO MUSIC DOES NOT PLAY UPON LOADING THE PAGE
 weather.fetchWeather("Atlanta");
+
+// CREATE API CALL FOR UNSPLASH!!!! WOHOOO!! =)
+const unsplashKey = 
+function generateImg() {
+  var city = document.querySelector(".city").innerText
+  console.log(city)
+
+  }
+
