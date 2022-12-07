@@ -2,17 +2,27 @@
 
 ## Description
 
-Have you ever been sitting at home studying on a rainy day and wished you had the perfect playlist? WeatherMann is here to match all your weather vibes. Think a Walkman for the weather! 
+Have you ever been sitting at home studying on a rainy day and wished you had the perfect playlist? WeatherMann is here to match all your weather vibes. Think a Walkman for the weather! <br>
+Upon visiting the page, type in the city of your choosing. This search will then result in displaying the current weather for your city as well as playing a songlist of warmer or winter tunes to coincide with the outdoor temperatures.
 
-
-
-
+This site will also locally store your searches, so that they persist when returning to the page. If at any point you would like to remove the search history, simply select the "Clear History" button and your page will reset.
 
 
 
 ## Application Mock-Up
-The following animation demonstrates functionality:
-![Still image of live application WeatherMann]( )
+The following animation demonstrates functionality: <br>
+![Still image of live application WeatherMann](assets/images/Webpage_snip.png)
+
+## Built With
+* HTML
+* CSS
+* JavaScript
+* JQuery
+* Moment.JS
+* BootStrap
+* Server-Side APIs: OpenWeather and Spotify
+
+
 ### Live Application Link
 * This [link](https://montinesproul.github.io/the-a-team/) connects you to the live application.
 ## GitHub Repo's
