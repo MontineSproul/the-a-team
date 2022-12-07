@@ -136,10 +136,16 @@ $(".history").on("click", (event) => {
 weather.fetchWeather("Atlanta");
 
 // CREATE API CALL FOR UNSPLASH!!!! WOHOOO!! =)
-const unsplashKey = 
+const unsplashKey = "fDLyIwH2-_UptFzuYMbi8IE0EsrXOD7JWcfncpaoIq4"
 function generateImg() {
   var city = document.querySelector(".city").innerText
-  console.log(city)
-
+  var url = `https://api.unsplash.com/search/photos?query=${city}&per_page=1&order_by&client_id=${unsplashKey}`
+debugger
+  fetch(url)
+    .then(response => {return response.json();})
+    .then(function (data) {
+      data.console.log(data.id);
+    })
   }
 
+  generateImg()
