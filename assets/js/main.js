@@ -146,6 +146,7 @@ function generateImg() {
     .then((data) => {
       // Retrieves and stores the url from json image
       var img = data.results[0].urls.full;
+      mainEl.attr(`background-image`, `url(${img})`)
       // Retrieves image's height
       console.log(data.results[0].height)
       // Retrieves image's width
