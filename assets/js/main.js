@@ -144,8 +144,8 @@ function generateImg() {
   fetch(url)
     .then(response => {return response.json();})
     .then((data) => {
-      // Retrieves image from json image
-      console.log(data.results[0].urls.full);
+      // Retrieves and stores the url from json image
+      var img = data.results[0].urls.full;
       // Retrieves image's height
       console.log(data.results[0].height)
       // Retrieves image's width
