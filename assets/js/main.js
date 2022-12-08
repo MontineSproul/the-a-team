@@ -137,16 +137,17 @@ weather.fetchWeather("Atlanta");
 
 // CREATE API CALL FOR UNSPLASH!!!! WOHOOO!! =)
 const unsplashKey = "fDLyIwH2-_UptFzuYMbi8IE0EsrXOD7JWcfncpaoIq4"
+
 function generateImg() {
   var city = "Atlanta"
-  var url = `https://api.unsplash.com/search/photos?query=${city}&per_page=1&order_by&client_id=${unsplashKey}`
+  var url = `https://api.unsplash.com/search/photos?query=${city}%20City&per_page=1&order_by&client_id=${unsplashKey}`
 // debugger
   fetch(url)
     .then(response => {return response.json();})
     .then((data) => {
       // Retrieves and stores the url from json image
       var img = data.results[0].urls.full;
-      mainEl.attr(`background-image`, `url(${img})`)
+      mainEl.css(`background-image`, `url(${img})`)
       // Retrieves image's height
       console.log(data.results[0].height)
       // Retrieves image's width
