@@ -21,6 +21,25 @@ setInterval(function () {
   date.textContent = moment().format("MMMM Do YYYY");
 });
 
+function generateImg() {
+  // debugger
+  var cityEl = $(".city")
+  cityEl = cityEl[0].innerText
+  var city = cityEl
+  var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
+// debugger
+  fetch(url)
+    .then(response => {return response.json();})
+    .then((data) => {
+      // Retrieves and stores the url from json image
+      var img = data.results[0].urls.full;
+      mainEl.css(`background-image`, `url(${img})`)
+      // Retrieves image's height
+      console.log(data.results[0].height)
+      // Retrieves image's width
+      console.log(data.results[0].width)
+    })
+  }
 //Retrieves data from Openweathermap.org (API KEY)
 let weather = {
   apiKey: "6af174eb1acf790c330054f1967a6d0f",
@@ -94,6 +113,9 @@ let weather = {
     }
     //clear search bar
     $(".search-bar").val("");
+
+    generateImg() 
+
   },
 
   //Function to retrieve the data entered in search
@@ -128,6 +150,7 @@ document
 $(".history").on("click", (event) => {
   if (event.target.tagName === "BUTTON") {
     weather.fetchWeather(event.target.innerText);
+    generateImg()
   }
 });
 
@@ -138,21 +161,26 @@ weather.fetchWeather("Atlanta");
 // CREATE API CALL FOR UNSPLASH!!!! WOHOOO!! =)
 const unsplashKey = "fDLyIwH2-_UptFzuYMbi8IE0EsrXOD7JWcfncpaoIq4"
 
-function generateImg() {
-  var city = "Atlanta"
-  var url = `https://api.unsplash.com/search/photos?query=${city}%20City&per_page=1&order_by&client_id=${unsplashKey}`
-// debugger
-  fetch(url)
-    .then(response => {return response.json();})
-    .then((data) => {
-      // Retrieves and stores the url from json image
-      var img = data.results[0].urls.full;
-      mainEl.css(`background-image`, `url(${img})`)
-      // Retrieves image's height
-      console.log(data.results[0].height)
-      // Retrieves image's width
-      console.log(data.results[0].width)
-    })
-  }
+// var cityStorage = JSON.parse(localStorage.getItem("cities"))
+// cityStorage = cityStorage[cityStorage.length - 1]
 
-  generateImg()
+
+
+// function generateImg() {
+//   // debugger
+//   var city = cityStorage
+//   var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
+// // debugger
+//   fetch(url)
+//     .then(response => {return response.json();})
+//     .then((data) => {
+//       // Retrieves and stores the url from json image
+//       var img = data.results[0].urls.full;
+//       mainEl.css(`background-image`, `url(${img})`)
+//       // Retrieves image's height
+//       console.log(data.results[0].height)
+//       // Retrieves image's width
+//       console.log(data.results[0].width)
+//     })
+//   }
+
