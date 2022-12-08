@@ -21,25 +21,25 @@ setInterval(function () {
   date.textContent = moment().format("MMMM Do YYYY");
 });
 
-function generateImg() {
-  // debugger
-  var cityEl = $(".city")
-  cityEl = cityEl[0].innerText
-  var city = cityEl
-  var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
-// debugger
-  fetch(url)
-    .then(response => {return response.json();})
-    .then((data) => {
-      // Retrieves and stores the url from json image
-      var img = data.results[0].urls.full;
-      mainEl.css(`background-image`, `url(${img})`)
-      // Retrieves image's height
-      console.log(data.results[0].height)
-      // Retrieves image's width
-      console.log(data.results[0].width)
-    })
-  }
+// function generateImg() {
+//   // debugger
+//   var cityEl = $(".city")
+//   cityEl = cityEl[0].innerText
+//   var city = cityEl
+//   var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
+// // debugger
+//   fetch(url)
+//     .then(response => {return response.json();})
+//     .then((data) => {
+//       // Retrieves and stores the url from json image
+//       var img = data.results[0].urls.full;
+//       mainEl.css(`background-image`, `url(${img})`)
+//       // Retrieves image's height
+//       console.log(data.results[0].height)
+//       // Retrieves image's width
+//       console.log(data.results[0].width)
+//     })
+//   }
 //Retrieves data from Openweathermap.org (API KEY)
 let weather = {
   apiKey: "6af174eb1acf790c330054f1967a6d0f",
@@ -96,7 +96,6 @@ let weather = {
     } else if (temp <= 75 && temp >= 60) {
 
       // Warm weather conditions; sets 'main' element's class to be 'warm', embeds 'warm' weather playlist
-      console.log(`it's warm`);
       mainEl.attr("class", "warm")
       $("#embed")
         .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5IDTimEWoTd?utm_source=generator" 
@@ -105,7 +104,6 @@ let weather = {
     } else {
 
       // Cold weather conditions; sets 'main' element's class to be 'cold', embeds 'cold' weather playlist
-      console.log(`it's cold`);
       mainEl.attr("class", "cold")
       $("#embed")
         .html(`<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
@@ -114,6 +112,7 @@ let weather = {
     //clear search bar
     $(".search-bar").val("");
 
+    // Calls the image generator function
     generateImg() 
 
   },
@@ -158,29 +157,22 @@ $(".history").on("click", (event) => {
 // NEED TO REMOVE TO DEFAULT TO SEARCH BAR ONLY SO MUSIC DOES NOT PLAY UPON LOADING THE PAGE
 weather.fetchWeather("Atlanta");
 
-// CREATE API CALL FOR UNSPLASH!!!! WOHOOO!! =)
+// CREATE API CALL FOR UNSPLASH WOHOOO =)
 const unsplashKey = "fDLyIwH2-_UptFzuYMbi8IE0EsrXOD7JWcfncpaoIq4"
+function generateImg() {
+  // Gets the value of the '.city' class element
+  var city = $(".city")[0].innerText
 
-// var cityStorage = JSON.parse(localStorage.getItem("cities"))
-// cityStorage = cityStorage[cityStorage.length - 1]
+  // The url the api call, which inputs the 'city' variable as a value for the query key
+  var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
 
+  fetch(url)
+    .then(response => {return response.json();})
+    .then((data) => {
+      // Retrieves and stores the url from json image
+      var img = data.results[0].urls.full;
 
-
-// function generateImg() {
-//   // debugger
-//   var city = cityStorage
-//   var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
-// // debugger
-//   fetch(url)
-//     .then(response => {return response.json();})
-//     .then((data) => {
-//       // Retrieves and stores the url from json image
-//       var img = data.results[0].urls.full;
-//       mainEl.css(`background-image`, `url(${img})`)
-//       // Retrieves image's height
-//       console.log(data.results[0].height)
-//       // Retrieves image's width
-//       console.log(data.results[0].width)
-//     })
-//   }
-
+      // Sets the style for the <main> element to have a background-image property of the url returned from the api call
+      mainEl.css(`background-image`, `url(${img})`)
+    })
+  }
