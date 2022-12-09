@@ -20,7 +20,7 @@ The following animation demonstrates functionality: <br>
 * JQuery
 * Moment.JS
 * BootStrap
-* Server-Side APIs: OpenWeather and Spotify
+* Server-Side APIs: OpenWeather,UnSplash and Spotify
 
 
 ### Live Application Link
