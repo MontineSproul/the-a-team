@@ -21,25 +21,6 @@ setInterval(function () {
   date.textContent = moment().format("MMMM Do YYYY");
 });
 
-// function generateImg() {
-//   // debugger
-//   var cityEl = $(".city")
-//   cityEl = cityEl[0].innerText
-//   var city = cityEl
-//   var url = `https://api.unsplash.com/search/photos?query=${city}%20cityscape&per_page=1&order_by&client_id=${unsplashKey}`
-// // debugger
-//   fetch(url)
-//     .then(response => {return response.json();})
-//     .then((data) => {
-//       // Retrieves and stores the url from json image
-//       var img = data.results[0].urls.full;
-//       mainEl.css(`background-image`, `url(${img})`)
-//       // Retrieves image's height
-//       console.log(data.results[0].height)
-//       // Retrieves image's width
-//       console.log(data.results[0].width)
-//     })
-//   }
 //Retrieves data from Openweathermap.org (API KEY)
 let weather = {
   apiKey: "6af174eb1acf790c330054f1967a6d0f",
@@ -154,7 +135,6 @@ $(".history").on("click", (event) => {
 });
 
 // Default display - Atlanta's weather conditions
-// NEED TO REMOVE TO DEFAULT TO SEARCH BAR ONLY SO MUSIC DOES NOT PLAY UPON LOADING THE PAGE
 weather.fetchWeather("Atlanta");
 
 // CREATE API CALL FOR UNSPLASH WOHOOO =)
