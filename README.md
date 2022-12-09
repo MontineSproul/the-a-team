@@ -11,7 +11,7 @@ This site will also locally store your searches, so that they persist when retur
 
 ## Application Mock-Up
 The following animation demonstrates functionality: <br>
-![Still image of live application WeatherMann](assets/images/Webpage_snip.png)
+![Still image of live application WeatherMann](assets/images/webPage_snip.png)
 
 ## Built With
 * HTML
