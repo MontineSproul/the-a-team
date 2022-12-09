@@ -7,32 +7,30 @@ Upon visiting the page, type in the city of your choosing. This search will then
 
 This site will also locally store your searches, so that they persist when returning to the page. If at any point you would like to remove the search history, simply select the "Clear History" button and your page will reset.
 
-
-
 ## Application Mock-Up
+
 The following animation demonstrates functionality: <br>
-![Still image of live application WeatherMann](assets/images/webPage_snip.png)
+![Still image of live application WeatherMann](./assets/images/WeatherMann-Screen-Record.gif)
 
 ## Built With
-* HTML
-* CSS
-* JavaScript
-* JQuery
-* Moment.JS
-* BootStrap
-* Server-Side APIs: OpenWeather,UnSplash and Spotify
 
+- HTML
+- CSS
+- JavaScript
+- JQuery
+- Moment.JS
+- BootStrap
+- Server-Side APIs: OpenWeather,UnSplash and Spotify
 
 ### Live Application Link
-* This [link](https://montinesproul.github.io/the-a-team/) connects you to the live application.
+
+- This [link](https://montinesproul.github.io/the-a-team/) connects you to the live application.
+
 ## GitHub Repo's
-If you'd like to see more of our work check out our repositories.   
-Alissa Cohan        [https://github.com/AlissaCohan18](https://github.com/AlissaCohan18)  
-Daikeen Lockett     [https://github.com/dlockett133](https://github.com/dlockett133)     
-Ozanne Alexander    [https://github.com/alexozy](https://github.com/alexozy)  
-Marques Ivory       [https://github.com/Maivory12](https://github.com/Maivory12)  
-Montine Sproul      [https://github.com/MontineSproul/the-a-team](https://github.com/MontineSproul/the-a-team)
 
-    
-
-    
+If you'd like to see more of our work check out our repositories.  
+Alissa Cohan [https://github.com/AlissaCohan18](https://github.com/AlissaCohan18)  
+Daikeen Lockett [https://github.com/dlockett133](https://github.com/dlockett133)  
+Ozanne Alexander [https://github.com/alexozy](https://github.com/alexozy)  
+Marques Ivory [https://github.com/Maivory12](https://github.com/Maivory12)  
+Montine Sproul [https://github.com/MontineSproul/the-a-team](https://github.com/MontineSproul/the-a-team)
